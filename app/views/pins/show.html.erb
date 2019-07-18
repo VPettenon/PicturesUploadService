@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<% if @pin.images.attached? %>
+	<p>
+	  <strong>Images:</strong>
+	  <br>
+	  <% @pin.images.each do |image| %>
+		<div style="width:300px; height:300px;">
+	    	<%= image_tag(image, style:"width:100%, height:auto", :size => "260x180") %>
+	    <div>
+	    <br>
+	  <% end %>
+	</p>
+<% end %>
+
+<p>
+  <strong>Description:</strong>
+  <%= @pin.description %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @pin.created_at.strftime("%D, %T") %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @pin.owner %>
+</p>
+
+<%= link_to 'Edit', edit_pin_path(@pin) %> |
+<%= link_to 'Back', pins_path %>
